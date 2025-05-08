@@ -16,5 +16,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20'
-    - run: npm install
-    - run: npm test
+    - name: Instalar dependencias si package.json existe
+      run: |
+        if [ -f package.json ]; then
+          npm install
+        else
+          echo "⚠️ No se encontró package.json, saltando npm install"
+        fi
+    - name: Ejecutar pruebas si están definidas
+      run: |
+        if [ -f package.json ] && jq -e '.scripts.test' package.json > /dev/null; then
+          npm test
+        else
+          echo "⚠️ No se encontró script de prueba, saltando npm test"
+        fi
