@@ -15,11 +15,21 @@ else
   echo "✅ package.json ya existe"
 fi
 
-# Workflow de GitHub Actions
+# Corregir script "test" por defecto
+if [ -f package.json ]; then
+  current_test=$(jq -r '.scripts.test // empty' package.json)
+  if [[ "$current_test" == 'echo "Error: no test specified" && exit 1' ]]; then
+    echo "🔧 Corrigiendo script 'test' por defecto..."
+    jq '.scripts.test = "echo \"Sin pruebas definidas\"" ' package.json > tmp.$$.json && mv tmp.$$.json package.json
+    echo "✅ Script 'test' corregido"
+  fi
+fi
+
+# Crear workflow GitHub Actions
 read -p "¿Deseas crear el archivo main.yml de GitHub Actions? (s/n): " confirm_yml
 if [[ "$confirm_yml" == "s" ]]; then
   mkdir -p .github/workflows
-  cat <<EOF > .github/workflows/main.yml
+  cat <<'EOF' > .github/workflows/main.yml
 name: Node.js CI
 
 on:
@@ -38,6 +48,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20'
+
     - name: Instalar dependencias si package.json existe
       run: |
         if [ -f package.json ]; then
@@ -45,12 +56,18 @@ jobs:
         else
           echo "⚠️ No se encontró package.json, saltando npm install"
         fi
-    - name: Ejecutar pruebas si están definidas
+
+    - name: Ejecutar pruebas si están definidas y no son las por defecto
       run: |
-        if [ -f package.json ] && jq -e '.scripts.test' package.json > /dev/null; then
-          npm test
+        if [ -f package.json ]; then
+          TEST_SCRIPT=$(jq -r '.scripts.test // empty' package.json)
+          if [[ -n "$TEST_SCRIPT" && "$TEST_SCRIPT" != "echo \"Error: no test specified\" && exit 1" ]]; then
+            npm test
+          else
+            echo "⚠️ Script de test por defecto o vacío, saltando npm test"
+          fi
         else
-          echo "⚠️ No se encontró script de prueba, saltando npm test"
+          echo "⚠️ No se encontró package.json, saltando pruebas"
         fi
 EOF
   echo "✅ main.yml creado"
@@ -58,7 +75,7 @@ else
   echo "❌ main.yml no fue creado"
 fi
 
-# Devcontainer
+# Crear devcontainer.json
 read -p "¿Deseas crear el archivo devcontainer.json para Codespaces? (s/n): " confirm_dev
 if [[ "$confirm_dev" == "s" ]]; then
   mkdir -p .devcontainer
@@ -79,7 +96,7 @@ else
   echo "❌ devcontainer.json no fue creado"
 fi
 
-# Instalar Node-RED globalmente ahora
+# Instalar Node-RED globalmente (localmente)
 read -p "¿Deseas instalar Node-RED globalmente ahora? (s/n): " confirm_nodered
 if [[ "$confirm_nodered" == "s" ]]; then
   npm install -g --unsafe-perm node-red
@@ -88,5 +105,5 @@ else
   echo "❌ Node-RED no fue instalado"
 fi
 
-echo "🎉 Setup completado."
+echo "🎉 Setup completado con éxito."
 
