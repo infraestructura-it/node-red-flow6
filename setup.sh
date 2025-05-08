@@ -105,16 +105,24 @@ else
   echo "❌ Node-RED no fue instalado"
 fi
 
-echo "🎉 Setup completado con éxito."
-# Habilitar proyectos en settings.js si existe
-SETTINGS_PATH="$HOME/.node-red/settings.js"
+# Preguntar si se desea habilitar el modo proyectos
+read -p "¿Deseas habilitar el modo 'proyectos' en Node-RED? (s/n): " confirm_proyectos
+if [[ "$confirm_proyectos" == "s" ]]; then
+  SETTINGS_PATH="$HOME/.node-red/settings.js"
+  if [ -f "$SETTINGS_PATH" ]; then
+    echo "🔧 Modificando $SETTINGS_PATH para habilitar modo proyectos..."
+    cp "$SETTINGS_PATH" "${SETTINGS_PATH}.bak"
 
-if [ -f "$SETTINGS_PATH" ]; then
-  echo "🔧 Modificando $SETTINGS_PATH para habilitar modo proyectos..."
-  sed -i.bak 's|// projects: {|projects: {|' "$SETTINGS_PATH"
-  sed -i '' 's|enabled: false|enabled: true|' "$SETTINGS_PATH"
-  echo "✅ Modo proyectos habilitado"
+    sed -i 's|// projects: {|projects: {|' "$SETTINGS_PATH"
+    sed -i 's|enabled: false|enabled: true|' "$SETTINGS_PATH"
+
+    echo "✅ Modo proyectos habilitado en settings.js"
+  else
+    echo "⚠️ No se encontró settings.js en $SETTINGS_PATH."
+    echo "💡 Ejecuta 'node-red' una vez para que se genere el archivo, luego vuelve a correr este paso."
+  fi
 else
-  echo "⚠️ No se encontró settings.js en $SETTINGS_PATH. Asegúrate de generar uno con 'node-red' al menos una vez."
+  echo "❌ Modo proyectos no fue habilitado"
 fi
 
+echo "🎉 Setup completado con éxito."
