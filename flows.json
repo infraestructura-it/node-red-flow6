@@ -8,6 +8,14 @@
         "env": []
     },
     {
+        "id": "08cefa5751007c0e",
+        "type": "tab",
+        "label": "Flujo 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42341712d9747c4d",
         "type": "inject",
         "z": "356a66381b260d1c",
@@ -79,5 +87,20 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "9f7a9d3708d77a9c",
+        "type": "ui_table",
+        "z": "08cefa5751007c0e",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 170,
+        "y": 200,
+        "wires": []
     }
 ]

@@ -2,7 +2,9 @@
     "name": "proyecto-2",
     "description": "pruebas de flujos",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-ui-table": "0.4.4"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flows.json",
