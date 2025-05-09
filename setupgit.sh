@@ -7,8 +7,8 @@ echo "🔧 Inicio de configuración paso a paso de Git"
 # Paso 1: Configurar identidad global
 read -p "¿Deseas configurar tu nombre y correo global en Git? (s/n) " CONFIRM_GIT
 if [[ "$CONFIRM_GIT" == "s" ]]; then
-  read -p "Nombre: " GIT_NAME
-  read -p "Correo: " GIT_EMAIL
+  read -p "infraestructura-it: " GIT_NAME
+  read -p "jairosepulvedac@gmail.com: " GIT_EMAIL
   git config --global user.name "$GIT_NAME"
   git config --global user.email "$GIT_EMAIL"
   echo "✅ Configuración global hecha."
