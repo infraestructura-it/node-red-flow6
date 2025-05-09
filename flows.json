@@ -16,6 +16,22 @@
         "env": []
     },
     {
+        "id": "353d2b724655a74d",
+        "type": "tab",
+        "label": "Flujo 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "722f66f1eaa053f3",
+        "type": "tab",
+        "label": "Flujo 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42341712d9747c4d",
         "type": "inject",
         "z": "356a66381b260d1c",
@@ -129,5 +145,134 @@
         "x": 470,
         "y": 140,
         "wires": []
+    },
+    {
+        "id": "c71081739def8080",
+        "type": "ui_button",
+        "z": "353d2b724655a74d",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "03e23ddf5e550032",
+        "type": "ui_dropdown",
+        "z": "353d2b724655a74d",
+        "name": "",
+        "label": "",
+        "tooltip": "",
+        "place": "Select option",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "value": "",
+                "label": ""
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 220,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "166f36857e46a96f",
+        "type": "ui_numeric",
+        "z": "722f66f1eaa053f3",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "638a6d14be5925bf",
+        "type": "ui_numeric",
+        "z": "722f66f1eaa053f3",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9a5ba4782fa46efc",
+        "type": "ui_numeric",
+        "z": "722f66f1eaa053f3",
+        "name": "",
+        "label": "numeric",
+        "tooltip": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "className": "",
+        "x": 360,
+        "y": 220,
+        "wires": [
+            []
+        ]
     }
 ]
