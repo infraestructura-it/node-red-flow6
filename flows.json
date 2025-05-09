@@ -40,6 +40,14 @@
         "env": []
     },
     {
+        "id": "ec873226797db0fa",
+        "type": "tab",
+        "label": "Flujo 6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42341712d9747c4d",
         "type": "inject",
         "z": "356a66381b260d1c",
@@ -333,6 +341,118 @@
         "className": "",
         "x": 590,
         "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2292c1897b8fcfb8",
+        "type": "ui_gauge",
+        "z": "ec873226797db0fa",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00B500",
+            "#E6E600",
+            "#CA3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 250,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "dc0183a72f6362d9",
+        "type": "ui_chart",
+        "z": "ec873226797db0fa",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1F77B4",
+            "#AEC7E8",
+            "#FF7F0E",
+            "#2CA02C",
+            "#98DF8A",
+            "#D62728",
+            "#FF9896",
+            "#9467BD",
+            "#C5B0D5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 170,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "af939f05c8ac0861",
+        "type": "ui_audio",
+        "z": "ec873226797db0fa",
+        "name": "",
+        "voice": "",
+        "always": "",
+        "x": 120,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5164d9804bf8ec96",
+        "type": "ui_toast",
+        "z": "ec873226797db0fa",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 270,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "289eadf995b7ade7",
+        "type": "ui_ui_control",
+        "z": "ec873226797db0fa",
+        "name": "",
+        "events": "all",
+        "x": 420,
+        "y": 180,
         "wires": [
             []
         ]
