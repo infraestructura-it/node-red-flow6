@@ -32,6 +32,14 @@
         "env": []
     },
     {
+        "id": "68bede47d24a370a",
+        "type": "tab",
+        "label": "Flujo 5",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "42341712d9747c4d",
         "type": "inject",
         "z": "356a66381b260d1c",
@@ -271,6 +279,60 @@
         "className": "",
         "x": 360,
         "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "acda68e9438f733b",
+        "type": "ui_template",
+        "z": "68bede47d24a370a",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 220,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8317063c1ba1d98a",
+        "type": "ui_table",
+        "z": "68bede47d24a370a",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "columns": [],
+        "outputs": 0,
+        "cts": false,
+        "x": 350,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "bed79903beab7b03",
+        "type": "ui_date_picker",
+        "z": "68bede47d24a370a",
+        "name": "",
+        "label": "date",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 590,
+        "y": 20,
         "wires": [
             []
         ]
