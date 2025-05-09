@@ -1,0 +1,10 @@
+{
+  "name": "Node-RED DevContainer",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
+  },
+  "postCreateCommand": "npm install -g --unsafe-perm node-red"
+}
